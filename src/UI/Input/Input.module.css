@@ -1,0 +1,14 @@
+input {
+  background-color: transparent;
+  border: transparent;
+  border-bottom: 1px solid #28527a;
+  outline: none;
+  transition: border 0.2s ease-in;
+}
+input:active,
+input:focus {
+  background-color: transparent;
+  border: transparent;
+  border-bottom: 3px solid #28527a;
+  outline: none;
+}

@@ -1,0 +1,30 @@
+.toolbar {
+  width: 100%;
+  background-color: #28527a;
+  display: flex;
+  align-items: center;
+  color: white;
+  justify-content: space-between;
+  padding: auto 20px;
+  height: 67px;
+}
+
+.toolbar ul {
+  list-style: none;
+  color: white;
+  display: flex;
+  margin: 0px;
+  padding: 0px;
+}
+
+.toolbar h3 {
+  font-size: 30px;
+  font-weight: 200;
+  margin: 15px;
+}
+.toolbar h3 span {
+  font-weight: 200;
+}
+.toolbar ul li {
+  margin: auto 15px;
+}
