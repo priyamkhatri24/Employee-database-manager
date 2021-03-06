@@ -4,6 +4,9 @@ input {
   border-bottom: 1px solid #28527a;
   outline: none;
   transition: border 0.2s ease-in;
+  width: 200px;
+  height: 25px;
+  margin: 15px auto;
 }
 input:active,
 input:focus {

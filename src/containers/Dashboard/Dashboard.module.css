@@ -1,0 +1,29 @@
+.dashboard {
+  width: 95%;
+  text-align: left;
+  margin: auto;
+  padding: 10px;
+}
+.dashboard h2 {
+  margin: 15px;
+  padding: 10px;
+  color: rgb(119, 116, 116);
+  font-weight: 400;
+}
+.row {
+  width: 100%;
+  margin: 10px;
+  padding: 10px;
+}
+
+ion-icon {
+  font-size: 20px;
+  cursor: pointer;
+  margin: auto 10px;
+}
+
+th {
+  text-align: center;
+  background-color: rgb(133, 153, 133);
+  height: 50px;
+}

@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 import classes from "./Toolbar.module.css";
 
 const toolbar = (props) => {
@@ -8,8 +9,16 @@ const toolbar = (props) => {
         <strong>Employee</strong>DataManager
       </h3>
       <ul>
-        <li>Login</li>
-        <li>Sign up</li>
+        <li>
+          <NavLink exact activeClassName={classes.active} to="/">
+            Login
+          </NavLink>
+        </li>
+        <li>
+          <NavLink activeClassName={classes.active} to="/sign-up">
+            Sign up
+          </NavLink>
+        </li>
       </ul>
     </div>
   );

@@ -15,6 +15,7 @@
   display: flex;
   margin: 0px;
   padding: 0px;
+  height: 100%;
 }
 
 .toolbar h3 {
@@ -26,5 +27,20 @@
   font-weight: 200;
 }
 .toolbar ul li {
+  height: 100%;
   margin: auto 15px;
+}
+
+.toolbar ul li a {
+  color: white;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  margin: auto;
+  height: inherit;
+  box-sizing: border-box;
+  transition: border 0.3s ease-out;
+}
+.toolbar ul li a.active {
+  border-bottom: 4px solid rgb(79, 143, 240);
 }

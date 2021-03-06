@@ -1,0 +1,37 @@
+form {
+  text-align: center;
+  justify-content: center;
+  width: 100%;
+  margin: 0px;
+  height: fit-content;
+}
+.label {
+  font-weight: bold;
+  font-size: 25px;
+  margin: 20px auto;
+}
+.add {
+  margin: 15px;
+  padding: 10px;
+  background-color: #28527a;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  outline: none;
+  border: transparent;
+  width: 100px;
+  height: 35.56px;
+  margin: 15px auto;
+}
+.add:hover {
+  background-color: #142e47;
+}
+.cancel {
+  background-color: transparent;
+  border: transparent;
+  outline: none;
+  text-transform: uppercase;
+  color: gray;
+  cursor: pointer;
+  margin: 10px auto;
+}

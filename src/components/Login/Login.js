@@ -1,12 +1,12 @@
 import React from "react";
 import classes from "./Login.module.css";
-import img from "../../assets/front1.jpg";
 import Input from "../../UI/Input/Input";
+import { Link } from "react-router-dom";
 
 const login = (props) => {
   return (
     <div className={classes.login}>
-      <img alt="main" src={img} />
+      <div className={classes.image}></div>
       <div className={classes.Form_container}>
         <ion-icon name="person-circle-outline"></ion-icon>
         <h4>Welcome!</h4>
@@ -15,8 +15,8 @@ const login = (props) => {
           <Input type="email" placeholder="email"></Input>
           <Input type="password" placeholder="password"></Input>
           <button>Login</button>
-          <p>
-            New user? <a href="#">Create an Account</a>
+          <p className={classes.createNewAccount}>
+            New user? <Link to="./dashboard">Create an Account</Link>
           </p>
         </form>
       </div>
