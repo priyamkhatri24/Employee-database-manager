@@ -1,0 +1,28 @@
+.delete_modal_content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin: auto;
+  height: fit-content;
+  padding: 0px 15px;
+}
+.delete_modal_content button {
+  width: 100px;
+  border-radius: 50px;
+  cursor: pointer;
+  outline: none;
+  border: 1px solid #28527a;
+  margin: auto 10px;
+  height: 20px;
+  text-align: center;
+}
+.cancel {
+  background-color: transparent;
+  color: black;
+}
+.yes {
+  background-color: #28527a;
+  color: white;
+}

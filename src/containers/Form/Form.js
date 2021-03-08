@@ -61,12 +61,13 @@ class Form extends Component {
     return (
       <div
         style={{
-          display: "block",
+          display: "flex",
+          flexDirection: "column",
           textAlign: "center",
           margin: "auto",
         }}
       >
-        <form>
+        <form className={classes.form}>
           <label className={classes.label}>Add an Employee</label>
           {formArray.map((ele) => {
             return (
@@ -81,10 +82,12 @@ class Form extends Component {
             );
           })}
           <button onClick={this.props.clicked} className={classes.add}>
-            Add
+            {this.props.submitTextContent}
           </button>
         </form>
-        <button className={classes.cancel}>Cancel</button>
+        <button onClick={this.props.cancelled} className={classes.cancel}>
+          Cancel
+        </button>
       </div>
     );
   }

@@ -7,12 +7,12 @@ const controls = (props) => {
       <button onClick={props.clicked}>Add new +</button>
       <form>
         <label>Sort by:</label>
-        <select name="Sort by">
-          <option value="date">Default</option>
+        <select onChange={props.changed} name="Sort by">
+          <option value="id">Default</option>
           <option value="name">Name</option>
           <option value="department">Department</option>
           <option value="bloodGroup">Blood Group</option>
-          <option value="location">Location</option>
+          <option value="address">Location</option>
         </select>
       </form>
     </div>

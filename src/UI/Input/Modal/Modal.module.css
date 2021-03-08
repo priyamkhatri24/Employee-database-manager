@@ -1,7 +1,7 @@
 .modal {
   width: 30%;
   height: fit-content;
-  min-height: 280px;
+  min-height: 150px;
   z-index: 500;
   position: fixed;
   display: flex;
@@ -19,9 +19,15 @@
   opacity: 0;
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 590px) {
   .modal {
     width: 70%;
     left: 15%;
+  }
+}
+@media screen and (max-width: 910px) {
+  .modal {
+    width: 50%;
+    left: 25%;
   }
 }

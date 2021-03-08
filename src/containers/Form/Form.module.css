@@ -1,9 +1,9 @@
-form {
+.form {
   text-align: center;
   justify-content: center;
   width: 100%;
+  height: 100%;
   margin: 0px;
-  height: fit-content;
 }
 .label {
   font-weight: bold;
@@ -24,7 +24,7 @@ form {
   margin: 15px auto;
 }
 .add:hover {
-  background-color: #142e47;
+  background-color: #24425e;
 }
 .cancel {
   background-color: transparent;
