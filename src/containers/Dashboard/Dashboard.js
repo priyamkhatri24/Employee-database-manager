@@ -2,11 +2,11 @@ import classes from "./Dashboard.module.css";
 import React, { Component } from "react";
 import Controls from "../../components/Controls/Controls";
 import EmployeeRow from "../../components/EmployeeRow/EmployeeRow";
-import Modal from "../../UI/Input/Modal/Modal";
+import Modal from "../../UI/Modal/Modal";
 import Form from "../Form/Form";
 import DeleteModalContent from "../../components/DeleteModal/DeleteModalContent";
 import { connect } from "react-redux";
-import * as actionTypes from "../../Reducer/Actions/Action";
+import * as actionTypes from "../../Reducer/Actions/DashboardActions";
 class Dashboard extends Component {
   state = {
     showFormModal: false,
@@ -135,11 +135,10 @@ class Dashboard extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    employees: state.employees,
-    employeeData: state.employeeData,
-    deleting: state.deleting,
-    sortby: state.sortby,
-    editing: state.editing,
+    employees: state.dash.employees,
+    employeeData: state.dash.employeeData,
+    deleting: state.dash.deleting,
+    sortby: state.dash.sortby,
   };
 };
 

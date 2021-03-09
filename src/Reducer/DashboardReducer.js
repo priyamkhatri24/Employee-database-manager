@@ -1,4 +1,4 @@
-import * as actionTypes from "./Actions/Action";
+import * as actionTypes from "./Actions/DashboardActions";
 const initialState = {
   employees: [
     {
@@ -128,7 +128,7 @@ const sort = (state, action) => {
 //   };
 // };
 
-const reducer = (state = initialState, action) => {
+const dashboardReducer = (state = initialState, action) => {
   switch (action.type) {
     case actionTypes.ADD_EMPLOYEE:
       return addEmployee(state, action);
@@ -149,4 +149,4 @@ const reducer = (state = initialState, action) => {
   }
 };
 
-export default reducer;
+export default dashboardReducer;

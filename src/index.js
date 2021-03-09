@@ -4,11 +4,22 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
-import { createStore } from "redux";
+import { createStore, applyMiddleware, compose, combineReducers } from "redux";
 import { Provider } from "react-redux";
-import reducer from "../src/Reducer/Reducer";
+import dashboardReducer from "./Reducer/DashboardReducer";
+import thunk from "redux-thunk";
+import authReducer from "./Reducer/AuthReducer";
 
-const store = createStore(reducer);
+const rootReducer = combineReducers({
+  dash: dashboardReducer,
+  auth: authReducer,
+});
+
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const store = createStore(
+  rootReducer,
+  composeEnhancers(applyMiddleware(thunk))
+);
 
 ReactDOM.render(
   <React.StrictMode>
