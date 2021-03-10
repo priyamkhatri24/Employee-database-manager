@@ -15,6 +15,7 @@ const controls = (props) => {
           <option value="address">Location</option>
         </select>
       </form>
+      <button onClick={props.save}>Save</button>
     </div>
   );
 };

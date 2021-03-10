@@ -41,6 +41,7 @@ class Signup extends Component {
     this.props.onAuth(
       this.state.authData.email,
       this.state.authData.password,
+      this.state.authData.username,
       this.state.mode
     );
   };
@@ -75,7 +76,7 @@ class Signup extends Component {
       <div className={classes.login}>
         <div className={classes.image}></div>
         <div className={classes.Form_container}>
-          <form>
+          <form className={classes.form}>
             <ion-icon className={classes.icon} name="create-outline"></ion-icon>
             <p className={classes.message}>
               {this.props.error ? mapErrorMessages[this.props.error] : null}
@@ -110,8 +111,8 @@ const mapStateToProps = (state) => {
 
 const mapActionsToProps = (dispatch) => {
   return {
-    onAuth: (email, password, mode) =>
-      dispatch(actionTypes.auth(email, password, mode)),
+    onAuth: (email, password, username, mode) =>
+      dispatch(actionTypes.auth(email, password, username, mode)),
   };
 };
 

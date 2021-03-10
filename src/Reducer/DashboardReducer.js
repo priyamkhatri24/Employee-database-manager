@@ -1,39 +1,39 @@
 import * as actionTypes from "./Actions/DashboardActions";
 const initialState = {
   employees: [
-    {
-      name: "Priyam Khatri",
-      birth: "24-08-1998",
-      bloodGroup: "A+",
-      department: "Reseach",
-      designation: "Engineer",
-      contact: "9810345998",
-      email: "priyamkhatri24@gmail.com",
-      address: "Sector 55 Noida",
-      id: 0,
-    },
-    {
-      name: "Aaurav Sharma",
-      birth: "12-45-8885",
-      bloodGroup: "B+",
-      department: "Sales",
-      designation: "Salesman",
-      contact: "789456123",
-      email: "Gaurav@testmail.cpm",
-      id: 1,
-      address: "Haldwani",
-    },
-    {
-      name: "Dheeraj Gupta",
-      birth: "12-45-7878",
-      bloodGroup: "AB+",
-      department: "Reseach and Dev",
-      designation: "Engineer",
-      contact: "78465123",
-      email: "Dheeraj@fmail.com",
-      id: 2,
-      address: "Faridabad",
-    },
+    // {
+    //   name: "Priyam Khatri",
+    //   birth: "24-08-1998",
+    //   bloodGroup: "A+",
+    //   department: "Reseach",
+    //   designation: "Engineer",
+    //   contact: "9810345998",
+    //   email: "priyamkhatri24@gmail.com",
+    //   address: "Sector 55 Noida",
+    //   id: 0,
+    // },
+    // {
+    //   name: "Aaurav Sharma",
+    //   birth: "12-45-8885",
+    //   bloodGroup: "B+",
+    //   department: "Sales",
+    //   designation: "Salesman",
+    //   contact: "789456123",
+    //   email: "Gaurav@testmail.cpm",
+    //   id: 1,
+    //   address: "Haldwani",
+    // },
+    // {
+    //   name: "Dheeraj Gupta",
+    //   birth: "12-45-7878",
+    //   bloodGroup: "AB+",
+    //   department: "Reseach and Dev",
+    //   designation: "Engineer",
+    //   contact: "78465123",
+    //   email: "Dheeraj@fmail.com",
+    //   id: 2,
+    //   address: "Faridabad",
+    // },
   ],
   employeeData: {
     name: "",
@@ -47,6 +47,7 @@ const initialState = {
   },
   deleting: null,
   editing: null,
+  gettingData: false,
   sortby: "default",
 };
 
@@ -94,7 +95,7 @@ const sort = (state, action) => {
   const employeeArray = [...state.employees];
   const sortedArray = employeeArray.sort(function (a, b) {
     if (sortParameter === "default") {
-      return {};
+      return 0;
     }
     if (a[sortParameter] < b[sortParameter]) {
       return -1;
@@ -105,6 +106,35 @@ const sort = (state, action) => {
     return 0;
   });
   return { ...state, employees: sortedArray };
+};
+
+const saveDataToDatabase = (state) => {
+  return state;
+};
+
+const getDataStarted = (state) => {
+  return {
+    ...state,
+    gettingData: true,
+  };
+};
+
+const getDataFromDatabase = (state, action) => {
+  const employees = action.response.data[action.userID].employees;
+
+  return {
+    ...state,
+    employees: employees,
+    gettingData: false,
+  };
+};
+
+const handleNewUser = (state, action) => {
+  return {
+    ...state,
+    gettingData: false,
+    employees: [],
+  };
 };
 
 // const editData = (state, action) => {
@@ -144,6 +174,14 @@ const dashboardReducer = (state = initialState, action) => {
       return state;
     case actionTypes.EDIT_SAVE:
       return state;
+    case actionTypes.SAVE_DATA_TO_DATABASE:
+      return saveDataToDatabase(state);
+    case actionTypes.GET_DATA_STARTED:
+      return getDataStarted(state);
+    case actionTypes.GET_DATA_FROM_DATABASE:
+      return getDataFromDatabase(state, action);
+    case actionTypes.HANDLE_NEW_USER:
+      return handleNewUser(state, action);
     default:
       return state;
   }

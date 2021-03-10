@@ -7,6 +7,7 @@ import Form from "../Form/Form";
 import DeleteModalContent from "../../components/DeleteModal/DeleteModalContent";
 import { connect } from "react-redux";
 import * as actionTypes from "../../Reducer/Actions/DashboardActions";
+import Spinner from "../../UI/Spinner/Spinner";
 class Dashboard extends Component {
   state = {
     showFormModal: false,
@@ -51,10 +52,17 @@ class Dashboard extends Component {
     this.props.editSaveHandler(e);
   };
 
+  componentDidMount() {
+    this.props.getDataHandler();
+  }
+
   render() {
-    const noDataMsg = this.props.employees.length ? null : (
+    let noDataMsg = this.props.employees.length ? null : (
       <p style={{ textAlign: "center" }}>Start adding your Employee's data.</p>
     );
+    if (this.props.gettingData) {
+      noDataMsg = <Spinner />;
+    }
     const employeeRow = this.props.employees.map((ele, index) => {
       return (
         <EmployeeRow
@@ -101,10 +109,11 @@ class Dashboard extends Component {
           />
         </Modal> */}
         <div>
-          <h2>Hi, Prime</h2>
+          <h2>Hi, User</h2>
           <Controls
             changed={this.props.sortingChangedHandler}
             clicked={this.modalAppearHandler}
+            save={this.props.saveDataHandler}
           />
         </div>
         <div className={classes.tableContainer}>
@@ -139,6 +148,7 @@ const mapStateToProps = (state) => {
     employeeData: state.dash.employeeData,
     deleting: state.dash.deleting,
     sortby: state.dash.sortby,
+    gettingData: state.dash.gettingData,
   };
 };
 
@@ -151,6 +161,8 @@ const mapActionsToProps = (dispatch) => {
     sortingChangedHandler: (e) => dispatch(actionTypes.sortChanged(e)),
     editEmployeDataHandler: (e) => dispatch(actionTypes.editEmployeeData(e)),
     editSaveHandler: (e) => dispatch(actionTypes.editSave(e)),
+    saveDataHandler: () => dispatch(actionTypes.saveData()),
+    getDataHandler: () => dispatch(actionTypes.getData()),
   };
 };
 

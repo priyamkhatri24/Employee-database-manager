@@ -100,7 +100,7 @@ const mapStateToProps = (state) => {
 const mapActionsToProps = (dispatch) => {
   return {
     onAuth: (email, password, mode) =>
-      dispatch(actionTypes.auth(email, password, mode)),
+      dispatch(actionTypes.auth(email, password, "", mode)),
   };
 };
 

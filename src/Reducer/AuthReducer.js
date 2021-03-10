@@ -1,6 +1,7 @@
 import * as actionTypes from "./Actions/AuthAction";
 const initialState = {
   email: null,
+  username: null,
   token: null,
   userID: null,
   error: null,
@@ -31,6 +32,7 @@ const authLogin = (state, action) => {
     loading: false,
     accountCreated: false,
     error: null,
+    username: action.response.data.username,
   };
 };
 const authFail = (state, action) => {

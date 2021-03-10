@@ -37,7 +37,7 @@ export const authLogout = () => {
   };
 };
 
-export const auth = (email, password, mode) => {
+export const auth = (email, password, username, mode) => {
   return (dispatch) => {
     dispatch(authStart());
     let url;
@@ -57,6 +57,7 @@ export const auth = (email, password, mode) => {
     axios
       .post(url, authData)
       .then((response) => {
+        response.data.username = username;
         mode === "login"
           ? dispatch(authLogin(response))
           : dispatch(authSuccess(response));
