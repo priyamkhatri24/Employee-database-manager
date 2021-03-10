@@ -81,7 +81,9 @@ class Signup extends Component {
               {this.props.error ? mapErrorMessages[this.props.error] : null}
             </p>
             <p className={classes.success}>
-              {this.props.email ? "Account created successfully" : null}
+              {this.props.accountCreated
+                ? "Account created successfully"
+                : null}
             </p>
             {signupForm}
             <button onClick={this.createAccountHandler}>Create Account</button>
@@ -102,6 +104,7 @@ const mapStateToProps = (state) => {
     userID: state.auth.userID,
     error: state.auth.error,
     loading: state.auth.loading,
+    accountCreated: state.auth.accountCreated,
   };
 };
 

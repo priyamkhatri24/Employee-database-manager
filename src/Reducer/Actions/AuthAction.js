@@ -4,6 +4,8 @@ export const AUTH_START = "AUTH_START";
 export const AUTH_SUCCESS = "AUTH_SUCCESS";
 export const AUTH_FAIL = "AUTH_FAIL";
 export const AUTH = "AUTH";
+export const AUTH_LOGIN = "AUTH_LOGIN";
+export const AUTH_LOGOUT = "AUTH_LOGOUT";
 
 export const authStart = () => {
   return {
@@ -16,10 +18,22 @@ export const authSuccess = (response) => {
     response: response,
   };
 };
+export const authLogin = (response) => {
+  return {
+    type: AUTH_LOGIN,
+    response: response,
+  };
+};
 export const authFail = (err) => {
   return {
     type: AUTH_FAIL,
     err: err.response,
+  };
+};
+
+export const authLogout = () => {
+  return {
+    type: AUTH_LOGOUT,
   };
 };
 
@@ -43,7 +57,9 @@ export const auth = (email, password, mode) => {
     axios
       .post(url, authData)
       .then((response) => {
-        dispatch(authSuccess(response));
+        mode === "login"
+          ? dispatch(authLogin(response))
+          : dispatch(authSuccess(response));
       })
       .catch((err) => {
         dispatch(authFail(err));

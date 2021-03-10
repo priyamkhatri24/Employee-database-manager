@@ -33,7 +33,6 @@ class Login extends Component {
 
   userLoginHandler = (e) => {
     e.preventDefault();
-    console.log("login");
     this.props.onAuth(
       this.state.authData.email,
       this.state.authData.password,
@@ -78,7 +77,7 @@ class Login extends Component {
             {loginFrom}
             <button onClick={this.userLoginHandler}>Login</button>
             <p className={classes.createNewAccount}>
-              New user? <Link to="./dashboard">Create an Account</Link>
+              New user? <Link to="./sign-up">Create an Account</Link>
             </p>
           </form>
         </div>
@@ -94,6 +93,7 @@ const mapStateToProps = (state) => {
     userID: state.auth.userID,
     error: state.auth.error,
     loading: state.auth.loading,
+    isAuthenticated: state.auth.token !== null,
   };
 };
 
