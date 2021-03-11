@@ -1,5 +1,5 @@
 # Getting Started with Create React App<br>
-<strong>This is an Employee database manager Project made by me.</strong>
+<strong>This is an Employee database manager Project made by me.</strong><br>
 This project is made with react. I have used react, react-router, redux, redux-thunk, firebase Authentication, firebase database in this project.<br>
 <br>
 The Project is live at <a href="https://employee-database-manager.web.app/">employee-database-manager.web.app</a>
