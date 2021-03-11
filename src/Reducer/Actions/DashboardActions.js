@@ -11,6 +11,9 @@ export const SAVE_DATA_TO_DATABASE = "SAVE_DATA_TO_DATABASE";
 export const GET_DATA_FROM_DATABASE = "GET_DATA_FROM_DATABASE";
 export const GET_DATA_STARTED = "GET_DATA_STARTED";
 export const HANDLE_NEW_USER = "HANDLE_NEW_USER";
+export const RESET_EMPLOYEES = "RESET_EMPLOYEES";
+export const DATA_SAVED = "DATA_SAVED";
+export const CLOSE_DATASAVED_MODAL = "CLOSE_DATASAVED_MODAL";
 
 export const addEmployee = (e) => {
   return {
@@ -54,6 +57,12 @@ export const editEmployeeData = (e) => {
   };
 };
 
+export const dataSaved = () => {
+  return {
+    type: DATA_SAVED,
+  };
+};
+
 export const saveData = (username) => {
   return (dispatch, getstate) => {
     dispatch({ type: SAVE_DATA_TO_DATABASE });
@@ -70,7 +79,7 @@ export const saveData = (username) => {
         "https://employee-database-manager-default-rtdb.firebaseio.com/employees.json",
         empData
       )
-      .then((res) => res)
+      .then((res) => dispatch(dataSaved()))
       .catch((err) => alert("Something went wrong. Please try again."));
   };
 };
@@ -116,5 +125,17 @@ export const editSave = (e) => {
   return {
     type: EDIT_SAVE,
     e: e,
+  };
+};
+
+export const resetEmployees = () => {
+  return {
+    type: RESET_EMPLOYEES,
+  };
+};
+
+export const closeDataSaveModal = () => {
+  return {
+    type: CLOSE_DATASAVED_MODAL,
   };
 };

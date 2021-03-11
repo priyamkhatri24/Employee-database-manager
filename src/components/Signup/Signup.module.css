@@ -78,3 +78,29 @@
 .icon {
   font-size: 15px;
 }
+
+@media screen and (max-width: 860px) {
+  .login .Form_container button {
+    width: 70%;
+    height: 35px;
+  }
+}
+@media screen and (max-width: 630px) {
+  .Form_container h4 {
+    font-size: 20px;
+  }
+  .login ion-icon {
+    font-size: 60px;
+  }
+}
+@media screen and (max-width: 550px) {
+  .login .image {
+    width: 100%;
+  }
+  .login {
+    flex-direction: column;
+  }
+  .login .Form_container p {
+    width: 100%;
+  }
+}

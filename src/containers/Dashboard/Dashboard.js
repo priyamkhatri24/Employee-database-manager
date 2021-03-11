@@ -98,6 +98,16 @@ class Dashboard extends Component {
             clickedYes={this.deleteEmployeeHandler}
           />
         </Modal>
+        <Modal show={this.props.saving}>
+          {this.props.dataSaved ? (
+            <div className={classes.savedModal}>
+              <p>Saved successfully</p>
+              <button onClick={this.props.closeDataSaveModal}>OK</button>
+            </div>
+          ) : (
+            <Spinner />
+          )}
+        </Modal>
         {/* <Modal show={this.state.showEditModal}>
           <Form
             label="Edit Employee Data"
@@ -149,6 +159,8 @@ const mapStateToProps = (state) => {
     deleting: state.dash.deleting,
     sortby: state.dash.sortby,
     gettingData: state.dash.gettingData,
+    saving: state.dash.saving,
+    dataSaved: state.dash.dataSaved,
   };
 };
 
@@ -163,6 +175,7 @@ const mapActionsToProps = (dispatch) => {
     editSaveHandler: (e) => dispatch(actionTypes.editSave(e)),
     saveDataHandler: () => dispatch(actionTypes.saveData()),
     getDataHandler: () => dispatch(actionTypes.getData()),
+    closeDataSaveModal: () => dispatch(actionTypes.closeDataSaveModal()),
   };
 };
 

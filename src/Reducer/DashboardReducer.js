@@ -1,40 +1,6 @@
 import * as actionTypes from "./Actions/DashboardActions";
 const initialState = {
-  employees: [
-    // {
-    //   name: "Priyam Khatri",
-    //   birth: "24-08-1998",
-    //   bloodGroup: "A+",
-    //   department: "Reseach",
-    //   designation: "Engineer",
-    //   contact: "9810345998",
-    //   email: "priyamkhatri24@gmail.com",
-    //   address: "Sector 55 Noida",
-    //   id: 0,
-    // },
-    // {
-    //   name: "Aaurav Sharma",
-    //   birth: "12-45-8885",
-    //   bloodGroup: "B+",
-    //   department: "Sales",
-    //   designation: "Salesman",
-    //   contact: "789456123",
-    //   email: "Gaurav@testmail.cpm",
-    //   id: 1,
-    //   address: "Haldwani",
-    // },
-    // {
-    //   name: "Dheeraj Gupta",
-    //   birth: "12-45-7878",
-    //   bloodGroup: "AB+",
-    //   department: "Reseach and Dev",
-    //   designation: "Engineer",
-    //   contact: "78465123",
-    //   email: "Dheeraj@fmail.com",
-    //   id: 2,
-    //   address: "Faridabad",
-    // },
-  ],
+  employees: [],
   employeeData: {
     name: "",
     birth: "",
@@ -48,6 +14,8 @@ const initialState = {
   deleting: null,
   editing: null,
   gettingData: false,
+  dataSaved: false,
+  saving: false,
   sortby: "default",
 };
 
@@ -109,7 +77,10 @@ const sort = (state, action) => {
 };
 
 const saveDataToDatabase = (state) => {
-  return state;
+  return {
+    ...state,
+    saving: true,
+  };
 };
 
 const getDataStarted = (state) => {
@@ -134,6 +105,26 @@ const handleNewUser = (state, action) => {
     ...state,
     gettingData: false,
     employees: [],
+  };
+};
+
+const resetEmployees = (state, action) => {
+  return initialState;
+};
+
+const dataSaved = (state) => {
+  return {
+    ...state,
+    dataSaved: true,
+    saving: true,
+  };
+};
+
+const closeDataSaveModal = (state) => {
+  return {
+    ...state,
+    dataSaved: false,
+    saving: false,
   };
 };
 
@@ -182,6 +173,12 @@ const dashboardReducer = (state = initialState, action) => {
       return getDataFromDatabase(state, action);
     case actionTypes.HANDLE_NEW_USER:
       return handleNewUser(state, action);
+    case actionTypes.RESET_EMPLOYEES:
+      return resetEmployees(state, action);
+    case actionTypes.DATA_SAVED:
+      return dataSaved(state);
+    case actionTypes.CLOSE_DATASAVED_MODAL:
+      return closeDataSaveModal(state);
     default:
       return state;
   }

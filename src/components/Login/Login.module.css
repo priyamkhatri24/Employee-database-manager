@@ -38,7 +38,6 @@ form {
 }
 .login .Form_container button {
   margin: 15px auto;
-
   text-align: center;
   width: 160px;
   height: 30px;
@@ -65,4 +64,30 @@ form {
 .login .createNewAccount {
   margin: 10px auto;
   font-size: 12px;
+  width: 70%;
+}
+
+@media screen and (max-width: 860px) {
+  .login .Form_container button {
+    width: 70%;
+  }
+}
+@media screen and (max-width: 630px) {
+  .Form_container h4 {
+    font-size: 20px;
+  }
+  .login ion-icon {
+    font-size: 60px;
+  }
+}
+@media screen and (max-width: 550px) {
+  .login .image {
+    width: 100%;
+  }
+  .login {
+    flex-direction: column;
+  }
+  .login .Form_container p {
+    width: 100%;
+  }
 }

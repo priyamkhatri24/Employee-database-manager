@@ -1,4 +1,4 @@
-input {
+.input {
   background-color: transparent;
   border: transparent;
   border-bottom: 1px solid #28527a;
@@ -8,10 +8,16 @@ input {
   height: 25px;
   margin: 15px auto;
 }
-input:active,
-input:focus {
+.input:active,
+.input:focus {
   background-color: transparent;
   border: transparent;
   border-bottom: 3px solid #28527a;
   outline: none;
+}
+
+@media screen and (max-width: 860px) {
+  .input {
+    width: 70%;
+  }
 }

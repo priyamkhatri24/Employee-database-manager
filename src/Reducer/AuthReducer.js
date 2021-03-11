@@ -39,7 +39,7 @@ const authFail = (state, action) => {
   return {
     ...state,
     loading: false,
-    error: action.err.data.error.message,
+    error: action.err?.data.error.message,
   };
 };
 

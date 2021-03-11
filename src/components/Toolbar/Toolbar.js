@@ -3,8 +3,13 @@ import { NavLink } from "react-router-dom";
 import classes from "./Toolbar.module.css";
 import { connect } from "react-redux";
 import * as actionTypes from "../../Reducer/Actions/AuthAction";
+import { resetEmployees } from "../../Reducer/Actions/DashboardActions";
 
 const toolbar = (props) => {
+  const logoutHandler = () => {
+    props.onLogout();
+    props.resetEmployees();
+  };
   let navlinks = (
     <ul>
       <li>
@@ -24,7 +29,7 @@ const toolbar = (props) => {
       <ul>
         <li>
           <NavLink
-            onClick={props.onLogout}
+            onClick={logoutHandler}
             exact
             activeClassName={classes.active}
             to="/"
@@ -53,6 +58,7 @@ const mapStateToProps = (state) => {
 const mapActionsToProps = (dispatch) => {
   return {
     onLogout: () => dispatch(actionTypes.authLogout()),
+    resetEmployees: () => dispatch(resetEmployees()),
   };
 };
 
